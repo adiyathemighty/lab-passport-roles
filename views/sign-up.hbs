@@ -1,0 +1,20 @@
+<h1>Sign Up</h1>
+
+<form action="/auth/sign-up" method='POST'>
+    <label for="name">Name:</label>
+    <input type="text" name='username' id="name" required='true'>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name='password' id="password" required='true'>
+    <br>
+    <br>
+    <label for="role">Role:</label>
+    <input type="text" value="Dev" name='role' id="role" required='true'>
+    <br>
+    <br>
+    <button type='submit'>Create my User Account</button>
+    <br>
+    <br> {{#if error}}
+    <p>ERROR: {{error}}</p>
+    {{/if}}
+</form>

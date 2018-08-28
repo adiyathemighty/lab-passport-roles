@@ -1,0 +1,17 @@
+<h1>Log in</h1>
+
+<form action="/auth/log-in" method='POST'>
+    <label for="name">Name:</label>
+    <input type="text" name='username' id="name" required='true'>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name='password' id="password" required='true'>
+    <br>
+    <br>
+
+    <button type='submit'>Log in</button>
+    <br>
+    <br> {{#if error}}
+    <p>ERROR: {{error}}</p>
+    {{/if}}
+</form>
