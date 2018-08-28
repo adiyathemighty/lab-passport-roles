@@ -5,7 +5,7 @@ const userSchema = new Schema({
   username: String,
   password: {
     type: String,
-    default: "Blah"
+    default: "$2b$10$f/2AEslIrtgiWCZ.0W/GW.pvYBTLa8PqBk1toUT10AX.e2AIiYTNu"
   },
   role: {
     type: String,

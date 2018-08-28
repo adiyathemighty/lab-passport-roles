@@ -17,7 +17,7 @@ router.post("/sign-up", (req, res) => {
   new User({ username, password: encryptedPassword, role })
     .save()
     .then(user => {
-      res.send("user created");
+      res.redirect(`/profile/${user.id}`);
     })
     .catch(console.error);
 });
