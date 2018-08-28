@@ -8,12 +8,17 @@
 
 <body>
 
-  <nav>
-    <a href="/auth/sign-up">Sign up</a>
-    <a href="/auth/log-in">Log in</a>
-    <a href="/employees/list"> Employees list</a>
-  </nav>
-  {{{body}}}
+  <div class="wrapper">
+    <nav>
+      <a href="/employees/list">Employees list</a>
+      <a href="/auth/sign-up">Sign up</a>
+      <a href="/auth/log-in">Log in</a>
+      <a href="/logout">Log out</a>
+      <a href="/profile">Profile</a>
+    </nav>
+
+    {{{body}}}
+  </div>
 
   <script src='/javascripts/script.js' />
 </body>

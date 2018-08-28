@@ -1,0 +1,21 @@
+<h1>Hello, {{username}}</h1>
+<h3>Your data:</h3>
+<p>Name: {{username}}</p>
+<p>Role: {{role}}</p>
+
+<form action="/profile/edit" method="POST">
+    <label for="username">Name:</label>
+    <input type="text" name="username" id="username" value={{username}}>
+
+    <p>Role:</p>
+    <label for="ta">TA</label>
+    <input type="radio" name="role" id="ta" value="TA">
+
+    <label for="dev">Dev</label>
+    <input type="radio" name="role" id="dev" value="Dev">
+
+    <label for="boss">Boss</label>
+    <input type="radio" name="role" id="boss" value="Boss">
+
+    <button type="submit">Edit</button>
+</form>

@@ -1,0 +1,44 @@
+<div class="employees">
+    <h1>Employees detail page </h1>
+
+    <div class="employees__container">
+        <div class="form-add">
+            {{#if boss}}
+            <h2>Add new employee:</h2>
+            <form action="/employees/new" method='POST'>
+                <label for="username">User:</label>
+                <input type="text" name='username' id="username" required='true'>
+                <br>
+                <p>Role:</p>
+                <input type="radio" id="TA" name="role" value="TA" checked />
+                <label for="TA">TA</label>
+                <input type="radio" id="Dev" name="role" value="Dev" />
+                <label for="Dev">Dev</label>
+                <br>
+
+                <button type='submit'>Add employee</button>
+                <br>
+                <br> {{#if error}}
+                <p>ERROR: {{error}}</p>
+                {{/if}}
+            </form>
+            {{/if}}
+        </div>
+
+        <div class="employee-list">
+            <h2>Existing employees:</h2>
+            <ul>
+                {{#each employees}}
+                <li>
+                    <a href="/profile/{{_id}}">{{username}}</a>
+                </li>
+                {{#if boss}}
+                <form action="/employees/delete" method="POST" id="delete-form" onsubmit="return confirm('Do you really want to delete this employee?');">
+                    <input type="hidden" name="_id" value={{_id}}>
+                    <button id="delete">Delete</button>
+                </form>
+                {{/if}} {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>

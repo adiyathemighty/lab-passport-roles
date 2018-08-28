@@ -18,7 +18,8 @@ router.post("/sign-up", (req, res) => {
     .save()
     .then(user => {
       res.send("user created");
-    });
+    })
+    .catch(console.error);
 });
 
 router.get("/log-in", (req, res, next) => {

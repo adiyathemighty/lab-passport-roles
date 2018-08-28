@@ -1,8 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 50rem;
+}
+
+.wrapper {
+  margin: 5rem;
+}
+
+.employees {
+  h1 {
+    margin: 5rem 0 2rem 0;
+  }
+
+  .employees__container {
+    padding: 5rem 0;
+    display: flex;
+
+    div {
+      margin-right: 15rem;
+    }
+  }
 }

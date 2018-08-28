@@ -14,6 +14,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/User");
 const flash = require("connect-flash");
+const MongoStore = require("connect-mongo")(session);
 
 mongoose.Promise = Promise;
 mongoose
@@ -46,7 +47,11 @@ app.use(
   session({
     secret: "our-passport-local-strategy-app",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 99999999999
+    })
   })
 );
 
@@ -99,6 +104,7 @@ app.use(
     sourceMap: true
   })
 );
+hbs.registerPartials(path.join(__dirname, "./views/partials"));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
@@ -116,5 +122,13 @@ app.use("/auth", auth);
 
 const employees = require("./routes/employees");
 app.use("/employees", employees);
+
+const profile = require("./routes/profile");
+app.use("/profile", profile);
+
+app.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
 
 module.exports = app;
